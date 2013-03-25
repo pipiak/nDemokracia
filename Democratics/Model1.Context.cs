@@ -26,5 +26,8 @@ namespace Democratics
         }
     
         public DbSet<User> Users { get; set; }
+        public DbSet<UserDevice> UserDevices { get; set; }
+        public DbSet<UserKarma> UserKarmas { get; set; }
+        public DbSet<UserInfo> UserInfoes { get; set; }
     }
 }

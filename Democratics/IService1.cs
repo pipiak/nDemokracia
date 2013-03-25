@@ -18,10 +18,28 @@ namespace Democratics
         [OperationContract]
         string GetWriteData(int value);
 
+        //Users
         [OperationContract]
-        bool AddNewUser(int Type, string UserName);
+        int RegisterNewUser(User usr);
 
         [OperationContract]
-        List<User> GetRecords();
+        int AddUserInfoToUser(UserInfo usr_info);
+
+        [OperationContract]
+        int UpdateUserInfoForUser(UserInfo usr_info);
+
+        [OperationContract]
+        UserInfo GetUserInfoForUser(User usr);
+
+        [OperationContract]
+        bool IsItMe(string UsrName);
+
+        //Admin
+        [OperationContract]
+        User GetUserWithID(int id);
+
+        [OperationContract]
+        List<User> GetAllUsers();
+
     }
 }

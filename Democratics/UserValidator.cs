@@ -16,12 +16,12 @@ namespace Democratics
             bool result = false;
             if ((userName == "pipiak") && (password == "322332"))
             {
-                commaSeparatedRoles = "Read,Write";
+                commaSeparatedRoles = "User,Admin";
                 result = true;
             }
             else if ((userName == "pipiak") && (password == "12345"))
             {
-                commaSeparatedRoles = "Read";
+                commaSeparatedRoles = "User";
                 result = true;
             }
             else

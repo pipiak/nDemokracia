@@ -6,6 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="847ae04200624378a7c87637b74f3cab" Name="Diagram1">
         <EntityTypeShape EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserDevice" Width="1.5" PointX="11.151821197546935" PointY="6.7065697194573328" />
+        <EntityTypeShape EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserKarma" Width="1.5" PointX="10.282579538543978" PointY="21.603620285915035" />
+        <EntityTypeShape EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserInfo" Width="1.5" PointX="2.4262009665491995" PointY="10.709141810754845" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
