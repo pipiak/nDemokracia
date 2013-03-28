@@ -18,7 +18,7 @@ namespace Democratics
             User usr = datacontext.Users.First(c => c.username == userName);
             if (usr != null)
             {
-                if (usr.password == password)
+                if ((String.Equals(usr.password, password, StringComparison.Ordinal) == true))
                 {
                     switch (usr.type)
                     {
