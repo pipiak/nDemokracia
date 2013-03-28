@@ -30,8 +30,7 @@ namespace Democratics
             {
                 cookie = string.Empty;
             }
-            new LogEvent("cookie=" + cookie).Raise();
-
+           
             string encryptedTicket = string.Empty;
 
             int start = cookie.IndexOf("AuthCookie=");
@@ -39,15 +38,19 @@ namespace Democratics
             {
                 cookie = cookie.Substring(start, cookie.Length - start);
                 int end = cookie.IndexOf(";");
-                cookie = cookie.Substring(0, end);
+                if (end > 0)
+                {
+                    cookie = cookie.Substring(0, end);
+                }
                 //test for ,
                 int middle = cookie.IndexOf(",");
+                
                 if (middle > 0)
                 {
                     cookie = cookie.Substring(0, middle);
                 }
                 encryptedTicket = cookie.Replace("AuthCookie=", "");
-                new LogEvent("encryptedTicket=" + encryptedTicket).Raise();
+               
             }
             else
             {
