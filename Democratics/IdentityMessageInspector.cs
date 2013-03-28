@@ -30,7 +30,8 @@ namespace Democratics
             {
                 cookie = string.Empty;
             }
-           
+            new LogEvent("cookie=" + cookie).Raise();
+
             string encryptedTicket = string.Empty;
 
             int start = cookie.IndexOf("AuthCookie=");
