@@ -39,11 +39,10 @@ namespace Democratics
 
 
         //User
-        [PrincipalPermission(SecurityAction.Demand, Role = "User")]
         public int RegisterNewUser(User usr)
         {
             dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
-            if (usr.type != 0)
+            if (usr.type == 0)
             {
                 dataContext.Users.Add(usr);
                 return dataContext.SaveChanges();
