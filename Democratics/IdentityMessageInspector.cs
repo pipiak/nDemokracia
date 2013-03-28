@@ -46,6 +46,7 @@ namespace Democratics
                     cookie = cookie.Substring(0, middle);
                 }
                 encryptedTicket = cookie.Replace("AuthCookie=", "");
+                new LogEvent("encryptedTicket=" + encryptedTicket).Raise();
             }
             else
             {
