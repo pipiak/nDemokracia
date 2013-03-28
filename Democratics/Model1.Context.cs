@@ -13,10 +13,10 @@ namespace Democratics
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 : DbContext
+    public partial class dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 : DbContext
     {
-        public dbb8e2ff3f72c74b72880ca18a014fe9baEntities1()
-            : base("name=dbb8e2ff3f72c74b72880ca18a014fe9baEntities1")
+        public dbb8e2ff3f72c74b72880ca18a014fe9baEntities3()
+            : base("name=dbb8e2ff3f72c74b72880ca18a014fe9baEntities3")
         {
         }
     
@@ -25,9 +25,9 @@ namespace Democratics
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<User> Users { get; set; }
         public DbSet<UserDevice> UserDevices { get; set; }
-        public DbSet<UserKarma> UserKarmas { get; set; }
         public DbSet<UserInfo> UserInfoes { get; set; }
+        public DbSet<UserKarma> UserKarmas { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

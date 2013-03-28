@@ -4,54 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="dbb8e2ff3f72c74b72880ca18a014fe9baModelStoreContainer">
-          <EntitySet Name="UserDevices" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.UserDevices" store:Type="Tables" store:Schema="dbo" store:Name="UserDevices">
-            <DefiningQuery>SELECT 
-      [UserDevices].[id] AS [id], 
-      [UserDevices].[user_id] AS [user_id], 
-      [UserDevices].[device_type] AS [device_type], 
-      [UserDevices].[device_token] AS [device_token], 
-      [UserDevices].[device_secret] AS [device_secret]
-      FROM [dbo].[UserDevices] AS [UserDevices]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="UserInfo" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.UserInfo" store:Type="Tables" store:Schema="dbo" store:Name="UserInfo">
-            <DefiningQuery>SELECT 
-      [UserInfo].[id] AS [id], 
-      [UserInfo].[user_id] AS [user_id], 
-      [UserInfo].[meno] AS [meno], 
-      [UserInfo].[p_meno] AS [p_meno], 
-      [UserInfo].[priezvisko] AS [priezvisko], 
-      [UserInfo].[p_priezvisko] AS [p_priezvisko], 
-      [UserInfo].[email] AS [email], 
-      [UserInfo].[p_email] AS [p_email]
-      FROM [dbo].[UserInfo] AS [UserInfo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="UserKarma" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.UserKarma" store:Type="Tables" store:Schema="dbo" store:Name="UserKarma">
-            <DefiningQuery>SELECT 
-      [UserKarma].[id] AS [id], 
-      [UserKarma].[user_id] AS [user_id], 
-      [UserKarma].[value] AS [value], 
-      [UserKarma].[comment] AS [comment]
-      FROM [dbo].[UserKarma] AS [UserKarma]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Users" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.Users" store:Type="Tables" store:Schema="dbo" store:Name="Users">
-            <DefiningQuery>SELECT 
-      [Users].[id] AS [id], 
-      [Users].[username] AS [username], 
-      [Users].[password] AS [password], 
-      [Users].[type] AS [type]
-      FROM [dbo].[Users] AS [Users]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserDevices" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.UserDevices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserInfo" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserKarma" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.UserKarma" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.Store.Users" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'dbb8e2ff3f72c74b72880ca18a014fe9ba.dbo.UserDevices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="UserDevices">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="device_type" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
@@ -59,16 +21,9 @@
           <Property Name="device_token" Type="nchar" MaxLength="100" />
           <Property Name="device_secret" Type="nchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'dbb8e2ff3f72c74b72880ca18a014fe9ba.dbo.UserInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="p_meno" />
-            <PropertyRef Name="p_priezvisko" />
-            <PropertyRef Name="p_email" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
@@ -79,103 +34,117 @@
           <Property Name="email" Type="nchar" MaxLength="10" />
           <Property Name="p_email" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'dbb8e2ff3f72c74b72880ca18a014fe9ba.dbo.UserKarma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="UserKarma">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="value" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="value" Type="bit" Nullable="false" />
           <Property Name="comment" Type="xml" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'dbb8e2ff3f72c74b72880ca18a014fe9ba.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="username" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="type" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="nchar" Nullable="false" MaxLength="30" />
           <Property Name="password" Type="nchar" Nullable="false" MaxLength="128" />
           <Property Name="type" Type="int" Nullable="false" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbb8e2ff3f72c74b72880ca18a014fe9baModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="dbb8e2ff3f72c74b72880ca18a014fe9baEntities1" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Users" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.User" />
+        <EntityContainer Name="dbb8e2ff3f72c74b72880ca18a014fe9baEntities3" p1:LazyLoadingEnabled="true">
           <EntitySet Name="UserDevices" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserDevice" />
-          <EntitySet Name="UserKarmas" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserKarma" />
           <EntitySet Name="UserInfoes" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserInfo" />
+          <EntitySet Name="UserKarmas" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserKarma" />
+          <EntitySet Name="Users" EntityType="dbb8e2ff3f72c74b72880ca18a014fe9baModel.User" />
         </EntityContainer>
+        <EntityType Name="UserDevice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="device_type" Type="Int32" Nullable="false" />
+          <Property Name="device_token" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="device_secret" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="meno" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="p_meno" Type="Int32" Nullable="false" />
+          <Property Name="priezvisko" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="p_priezvisko" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="p_email" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserKarma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Boolean" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="username" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="type" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="true" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="true" />
           <Property Name="type" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="UserDevice">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="device_type" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="Int32" Name="user_id" Nullable="false" />
-          <Property Type="Int32" Name="device_type" Nullable="false" />
-          <Property Type="String" Name="device_token" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="device_secret" MaxLength="100" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="UserKarma">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="value" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="user_id" Nullable="false" />
-          <Property Type="Boolean" Name="value" Nullable="false" />
-          <Property Type="String" Name="comment" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="UserInfo">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="user_id" />
-            <PropertyRef Name="p_meno" />
-            <PropertyRef Name="p_priezvisko" />
-            <PropertyRef Name="p_email" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="Int32" Name="user_id" Nullable="false" />
-          <Property Type="String" Name="meno" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="p_meno" Nullable="false" />
-          <Property Type="String" Name="priezvisko" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="p_priezvisko" Nullable="false" />
-          <Property Type="String" Name="email" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="p_email" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbb8e2ff3f72c74b72880ca18a014fe9baModelStoreContainer" CdmEntityContainer="dbb8e2ff3f72c74b72880ca18a014fe9baEntities1">
+        <EntityContainerMapping StorageEntityContainer="dbb8e2ff3f72c74b72880ca18a014fe9baModelStoreContainer" CdmEntityContainer="dbb8e2ff3f72c74b72880ca18a014fe9baEntities3">
+          <EntitySetMapping Name="UserDevices">
+            <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserDevice">
+              <MappingFragment StoreEntitySet="UserDevices">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="device_type" ColumnName="device_type" />
+                <ScalarProperty Name="device_token" ColumnName="device_token" />
+                <ScalarProperty Name="device_secret" ColumnName="device_secret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="meno" ColumnName="meno" />
+                <ScalarProperty Name="p_meno" ColumnName="p_meno" />
+                <ScalarProperty Name="priezvisko" ColumnName="priezvisko" />
+                <ScalarProperty Name="p_priezvisko" ColumnName="p_priezvisko" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="p_email" ColumnName="p_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserKarmas">
+            <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserKarma">
+              <MappingFragment StoreEntitySet="UserKarma">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -183,41 +152,6 @@
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="type" ColumnName="type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserDevices">
-            <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserDevice">
-              <MappingFragment StoreEntitySet="UserDevices">
-                <ScalarProperty Name="device_secret" ColumnName="device_secret" />
-                <ScalarProperty Name="device_token" ColumnName="device_token" />
-                <ScalarProperty Name="device_type" ColumnName="device_type" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserKarmas">
-            <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserKarma">
-              <MappingFragment StoreEntitySet="UserKarma">
-                <ScalarProperty Name="comment" ColumnName="comment" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserInfoes">
-            <EntityTypeMapping TypeName="dbb8e2ff3f72c74b72880ca18a014fe9baModel.UserInfo">
-              <MappingFragment StoreEntitySet="UserInfo">
-                <ScalarProperty Name="p_email" ColumnName="p_email" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="p_priezvisko" ColumnName="p_priezvisko" />
-                <ScalarProperty Name="priezvisko" ColumnName="priezvisko" />
-                <ScalarProperty Name="p_meno" ColumnName="p_meno" />
-                <ScalarProperty Name="meno" ColumnName="meno" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

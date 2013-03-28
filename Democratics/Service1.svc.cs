@@ -41,9 +41,10 @@ namespace Democratics
         //User
         public int RegisterNewUser(User usr)
         {
-            dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
+            dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
             if (usr.type == 0)
             {
+                
                 dataContext.Users.Add(usr);
                 return dataContext.SaveChanges();
             }
@@ -62,7 +63,7 @@ namespace Democratics
             {
                 if (IsItMe(usr.username))
                 {
-                    dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
+                    dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
                     dataContext.UserInfoes.Add(usr_info);
                     return dataContext.SaveChanges();
                 }
@@ -85,7 +86,7 @@ namespace Democratics
             {
                 if (IsItMe(usr.username))
                 {
-                    dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
+                    dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
                     UserInfo info= dataContext.UserInfoes.First(c => c.user_id == usr.id);
                     info.meno = usr_info.meno;
                     info.p_meno = usr_info.p_meno;
@@ -111,7 +112,7 @@ namespace Democratics
         {
             if (IsItMe(usr.username))
             {
-                dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
+                dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
                 return dataContext.UserInfoes.First(c => c.user_id == usr.id);
             }
             else
@@ -135,14 +136,14 @@ namespace Democratics
         [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
         public User GetUserWithID(int id)
         {
-            dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
+            dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
             return dataContext.Users.Where(c => c.id == id).First();
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
         public List<User> GetAllUsers()
         {
-            dbb8e2ff3f72c74b72880ca18a014fe9baEntities1 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities1();
+            dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
             return dataContext.Users.ToList();
         }
     }
