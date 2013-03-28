@@ -20,21 +20,29 @@ namespace Democratics
             {
                 if (usr.password == password)
                 {
-                    switch(usr.type)
+                    switch (usr.type)
                     {
                         case 0:
-                            commaSeparatedRoles=@"User";
+                            commaSeparatedRoles = @"User";
                             break;
-                            case 1:
-                            commaSeparatedRoles=@"User,Editor";
+                        case 1:
+                            commaSeparatedRoles = @"User,Editor";
                             break;
-                            case 999:
-                            commaSeparatedRoles=@"User,Admin,Editor";
+                        case 999:
+                            commaSeparatedRoles = @"User,Admin,Editor";
                             break;
 
                     }
                     result = true;
                 }
+                else
+                {
+                    new LogEvent("Wrong pass="+password+"..."+usr.password).Raise();
+                }
+            }
+            else
+            {
+                new LogEvent("Usr=NULL Username="+userName).Raise();
             }
             
             return result;
