@@ -44,7 +44,7 @@ namespace Democratics
             dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 dataContext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
             if (usr.type == 0)
             {
-                if (dataContext.Users.First(c => c.username == usr.username) == null)
+                if (dataContext.Users.Count(c => c.username == usr.username) ==0)
                 {
                     dataContext.Users.Add(usr);
                     return dataContext.SaveChanges();
