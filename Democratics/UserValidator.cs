@@ -14,19 +14,27 @@ namespace Democratics
         {
             commaSeparatedRoles = string.Empty;
             bool result = false;
-            if ((userName == "pipiak") && (password == "322332"))
+            dbb8e2ff3f72c74b72880ca18a014fe9baEntities3 datacontext = new dbb8e2ff3f72c74b72880ca18a014fe9baEntities3();
+            User usr = datacontext.Users.First(c => c.username == userName);
+            if (usr != null)
             {
-                commaSeparatedRoles = "User,Admin";
-                result = true;
-            }
-            else if ((userName == "pipiak") && (password == "12345"))
-            {
-                commaSeparatedRoles = "User";
-                result = true;
-            }
-            else
-            {
-                result = false;
+                if (usr.password == password)
+                {
+                    switch(usr.type)
+                    {
+                        case 0:
+                            commaSeparatedRoles=@"User";
+                            break;
+                            case 1:
+                            commaSeparatedRoles=@"User,Editor";
+                            break;
+                            case 999:
+                            commaSeparatedRoles=@"User,Admin,Editor";
+                            break;
+
+                    }
+                    result = true;
+                }
             }
             
             return result;
